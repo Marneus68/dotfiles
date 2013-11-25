@@ -1,0 +1,25 @@
+
+URxvt.depth: 32
+URxvt.background: [95]#000000
+URxvt.scrollBar: false
+
+URxvt.foreground: white
+#URxvt.background: black
+
+*color1: #dc3535
+*color2: #12bd77
+*color3: #d2c533
+*color4: #49176d
+*color5: #81293e
+*color6: #1e64a1
+*color7: #adb8bf
+
+*color9: #ff7272
+*color10: #78fdc6
+*color11: #fff8ab
+*color12: #654da0
+*color13: #c33a80
+*color14: #659ccd
+*color15: #f3f8fa
+
+
