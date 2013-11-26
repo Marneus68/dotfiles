@@ -229,3 +229,11 @@ call pathogen#infect()
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+" miniBuffExplorer bindings
+map <Leader>b :TMiniBufExplorer<cr>
+map <Leader>t :MiniBufExplorer<cr>
+" Enable thz wtral+hjkl to move around the tabs 
+" let g:miniBufExplMapWindowNavVim = 1
+nmap <c-l> <c-w>k<tab><cr>
+nmap <c-h> <c-w>k<s-tab><cr>
+
