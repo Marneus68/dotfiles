@@ -30,13 +30,12 @@ snippet #if
 # (the randomizer code is taken directly from TextMate; it could probably be
 # cleaner, I don't know how to do it in vim script)
 snippet once
-	#ifndef ${1:`toupper(Filename('', 'UNTITLED').'_'.system("/usr/bin/ruby -e 'print (rand * 2821109907455).round.to_s(36)'"))`}
-
-	#define $1
+	#ifndef __${1:`toupper(Filename('$1_H', 'UNTITLED_H'))`}__
+	#define __$1__
 
 	${2}
 
-	#endif /* end of include guard: $1 */
+	#endif /* __$1__ */
 # If Condition
 snippet if
 	if (${1:/* condition */}) {

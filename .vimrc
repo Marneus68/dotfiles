@@ -2,6 +2,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Map the leader
+let mapleader = ";"
+
 " Set vim history
 set history=700
 
@@ -236,4 +239,7 @@ map <Leader>t :MiniBufExplorer<cr>
 " let g:miniBufExplMapWindowNavVim = 1
 nmap <c-l> <c-w>k<tab><cr>
 nmap <c-h> <c-w>k<s-tab><cr>
+
+" EasyMotion bindings
+nmap <leader>f H<leader><leader>w
 
