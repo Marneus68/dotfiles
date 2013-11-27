@@ -39,6 +39,7 @@ set ruler
 " Display the current cursor line
 set cursorline
 " highlight Cursorline cterm=background
+:hi CursorLine   cterm=NONE ctermbg=darkgrey ctermfg=NONE
 
 " Line numbering // you can't live without it
 " TODO : find a way to have both the line numbering and the relative line
@@ -66,7 +67,7 @@ set tm=500
 set visualbell
 
 " Enable mouse scroll
-" set mouse=a
+set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
@@ -142,6 +143,9 @@ vnoremap ù %
 imap <c-v> <Esc>"*pi
 " Use Ctrl+C in edit mode to copy the current line into the clipboard
 imap <c-c> <Esc>"*yyi
+
+" unmap ctrl+q because it's annoying (and useless to me)
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Windows and buffers
