@@ -47,7 +47,11 @@ set cursorline
 set number
 
 " Show a column at 80 chars
-"set colorcolumn=85
+"set colorcolumn=81
+
+" Show a column at chars for every line that is over 80 characters long
+" highlight ColorColumn ctermbg-magenta
+call matchadd('ColorColumn', '\%81v', 100)
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -59,6 +63,11 @@ set showmode
 " Configure the default completion menu behaviour
 set wildmenu
 set wildmode=list:longest
+
+" Enable Omni Completion
+set nocp
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 " No annoying sound on errors, use a flash instead
 set noerrorbells
@@ -225,7 +234,6 @@ set statusline+=%0*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
 set statusline+=%0*\ col:%03c\                            "Colnr
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Scripts and Extentions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -246,4 +254,36 @@ nmap <c-h> <c-w>k<s-tab><cr>
 
 " EasyMotion bindings
 nmap <leader>f H<leader><leader>w
+
+" Syntastic options
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_auto_refresh_includes = 1
+let g:syntastic_cpp_include_dirs = [ 'include', 'headers', 'inc', '../include', '../inc', '../headers' ]
+
+" OmniCppComplete
+" configure tags - add additional tags here or comment out not-used ones
+set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/gl
+set tags+=~/.vim/tags/sdl
+set tags+=~/.vim/tags/sfml
+set tags+=~/.vim/tags/gtkmm-3.0
+set tags+=~/.vim/tags/gtkmm-2.4
+set tags+=~/.vim/tags/temp
+" build tags of your own project wiOmniCpp_SelectFirstItem = 0th Ctrl-F12
+map <leader><F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q -f ~/.vim/tags/temp .<CR><CR>
+"
+" OmniCppComplete
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowScopeInAbbr = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+let OmniCpp_SelectFirstItem = 1 " autmatically select the first item
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
 
