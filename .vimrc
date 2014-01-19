@@ -155,7 +155,6 @@ imap <c-c> <Esc>"*yyi
 
 " unmap ctrl+q because it's annoying (and useless to me)
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -233,6 +232,12 @@ set statusline+=%0*\ %{&spelllang}\%{HighlightSearch()}\  "Spellanguage & Highli
 set statusline+=%0*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
 set statusline+=%0*\ col:%03c\                            "Colnr
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Spellcheck
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" binding to enable and disable spellchecking with the french dictionnary
+map <leader><F11> :setlocal spell! spelllang=fr<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Scripts and Extentions
