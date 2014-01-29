@@ -247,6 +247,9 @@ map <leader><F11> :setlocal spell! spelllang=fr<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Scripts, Extentions and custom bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Reload my vimrc
+nmap <leader>r :so $MYVIMRC<CR>
+
 " Start Pathogen
 call pathogen#infect()
 
@@ -255,8 +258,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP ./'
 
 " miniBuffExplorer bindings
-map <Leader>b :TMiniBufExplorer<cr>
-map <Leader>t :MiniBufExplorer<cr>
+"map <Leader>b :TMiniBufExplorer<cr>
+"map <Leader>t :MiniBufExplorer<cr>
 
 " Enable ctrl+h and ctrl+l to move around the buffers
 " let g:miniBufExplMapWindowNavVim = 1
@@ -275,8 +278,10 @@ nmap <leader>f H<leader><leader>w
 
 " FSwitch options
 let g:alternateSearchPath = 'reg:#\<src\>$#include#,reg:#\<include\>$#src#'
-au! BufEnter *.cpp let b:fswitchdst = 'h' | let b:fswitchlocs = './inc,./include,../inc,../include'
-au! BufEnter *.h let b:fswitchdst = 'cpp' | let b:fswitchlocs = './src,./src'
+au! BufEnter *.cpp let b:fswitchdst = 'h' | let b:fswitchlocs = '../include'
+au! BufEnter *.h let b:fswitchdst = 'cpp' | let b:fswitchlocs = '../src'
+" FSwitch bindings
+nmap <leader>fs :FSHere<CR>
 
 " OmniCppComplete
 " configure tags - add additional tags here or comment out not-used ones
