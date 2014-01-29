@@ -248,7 +248,8 @@ map <leader><F11> :setlocal spell! spelllang=fr<CR>
 " Scripts, Extentions and custom bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Reload my vimrc
-nmap <leader>r :so $MYVIMRC<CR>
+nmap <leader>rc :e $MYVIMRC<CR>
+nmap <leader>rr :so $MYVIMRC<CR>
 
 " Start Pathogen
 call pathogen#infect()
@@ -291,6 +292,7 @@ set tags+=~/.vim/tags/sdl
 set tags+=~/.vim/tags/sfml
 set tags+=~/.vim/tags/gtkmm-3.0
 set tags+=~/.vim/tags/gtkmm-2.4
+set tags+=~/.vim/tags/irr
 set tags+=~/.vim/tags/temp
 " build tags of your own project wiOmniCpp_SelectFirstItem = 0th Ctrl-F12
 map <leader><F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q -f ~/.vim/tags/temp .<CR><CR>
