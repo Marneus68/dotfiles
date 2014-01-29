@@ -273,6 +273,11 @@ nmap <leader>f H<leader><leader>w
 "let g:syntastic_cpp_auto_refresh_includes = 1
 "let g:syntastic_cpp_include_dirs = [ 'include', 'headers', 'inc', '../include', '../inc', '../headers' ]
 
+" FSwitch options
+let g:alternateSearchPath = 'reg:#\<src\>$#include#,reg:#\<include\>$#src#'
+au! BufEnter *.cpp let b:fswitchdst = 'h' | let b:fswitchlocs = './inc,./include,../inc,../include'
+au! BufEnter *.h let b:fswitchdst = 'cpp' | let b:fswitchlocs = './src,./src'
+
 " OmniCppComplete
 " configure tags - add additional tags here or comment out not-used ones
 set tags+=~/.vim/tags/cpp
