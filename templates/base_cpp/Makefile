@@ -18,8 +18,10 @@ INCDIR	:= include
 # Object directory
 OBJDIR	:= obj
 
+CFLAGS	:= -I $(INCDIR)
+
 # setting the vpath (additionnal search path for make)
-VPATH	:= $(SRCDIR) $(OBJDIR)
+VPATH	:= $(INCDIR) $(SRCDIR) $(OBJDIR)
 
 CPP_SRCS    = $(wildcard src/*.cpp)
 OBJ_FILES   = $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(CPP_SRCS))
@@ -28,20 +30,20 @@ all: objdir ${TARGET}
 
 $(TARGET): $(OBJ_FILES)
 	@echo "Linking..."
-	$(CC) $(WARN) $(OFLAGS) $(LDFLAGS) $(OBJ_FILES) -o $@ $(LDLIBS) 
+	$(CC) $(WARN) $(OFLAGS) $(CFLAGS) $(LDFLAGS) $(OBJ_FILES) -o $@ $(LDLIBS) 
 	@echo "Done."
 
 obj/%.o: %.cpp
 	@echo "Compiling "$<"..."
-	$(CC) -c $(WARN) $(OFLAGS) $(LDFLAGS) $< -o $@
-
-clean: 
-	@echo "Cleaning..."
-	rm -rf $(OBJDIR)/*.o
+	$(CC) -c $(WARN) $(OFLAGS) $(CFLAGS) $(LDFLAGS) $< -o $@
 
 objdir:
 	@echo "Creating object directory..."
 	mkdir -p $(OBJDIR)
+
+clean: 
+	@echo "Cleaning..."
+	rm -rf $(OBJDIR)/*.o
 
 mrproper: clean
 	rm -rf ${TARGET}

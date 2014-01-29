@@ -78,3 +78,5 @@ alias untar2='tar -xjf'
 alias ppdf='evince-previewer'
 alias dia='dia --integrated'
 
+# Quick way to open my projects in vim
+alias vic='vim Makefile src/* include/*'

@@ -134,6 +134,7 @@ client.unfocused        #adb8bf #f3f8fa #49176d #292d2e
 for_window [class="^Firefox$" title=" - Mozilla Firefox$"] border none
 for_window [class="^Gimp$" title="^GNU Image Manipulation Program$"] border none
 for_window [class="^Gimp$" title=" - GIMP$"] border none
+for_window [class="feh*" title ="feh*"] floating enable
 
 # assign cerain applications to their own workspaces
 assign [class="^Firefox$" window_role="browser"] "2: Web"

@@ -154,6 +154,11 @@ imap <c-v> <Esc>"*pi
 imap <c-c> <Esc>"*yyi
 
 " unmap ctrl+q because it's annoying (and useless to me)
+map <c-q> <Nop>
+
+" make the indent behaviour a little more sane
+vmap <Tab> >gv
+vmap <S-Tab> <gv
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Windows and buffers
@@ -240,30 +245,33 @@ set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? T
 map <leader><F11> :setlocal spell! spelllang=fr<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Scripts and Extentions
+" Scripts, Extentions and custom bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Start Pathogen
 call pathogen#infect()
 
 " CtrlP bindings
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlP ./'
 
 " miniBuffExplorer bindings
 map <Leader>b :TMiniBufExplorer<cr>
 map <Leader>t :MiniBufExplorer<cr>
-" Enable thz wtral+hjkl to move around the tabs 
+
+" Enable ctrl+h and ctrl+l to move around the buffers
 " let g:miniBufExplMapWindowNavVim = 1
-nmap <c-l> <c-w>k<tab><cr>
-nmap <c-h> <c-w>k<s-tab><cr>
+"nmap <c-l> <c-w>k<tab><cr>
+nmap <c-l> :bn<CR>
+"nmap <c-h> <c-w>k<s-tab><cr>
+nmap <c-h> :bp<CR>
 
 " EasyMotion bindings
 nmap <leader>f H<leader><leader>w
 
 " Syntastic options
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_auto_refresh_includes = 1
-let g:syntastic_cpp_include_dirs = [ 'include', 'headers', 'inc', '../include', '../inc', '../headers' ]
+"let g:syntastic_cpp_check_header = 1
+"let g:syntastic_cpp_auto_refresh_includes = 1
+"let g:syntastic_cpp_include_dirs = [ 'include', 'headers', 'inc', '../include', '../inc', '../headers' ]
 
 " OmniCppComplete
 " configure tags - add additional tags here or comment out not-used ones
@@ -292,3 +300,11 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
+" Simple make, make clean, make mrproper, make test and make debug
+map <leader>mm :!make<CR>
+map <leader>mc :!make clean<CR>
+map <leader>mp :!make mrproper<CR>
+map <leader>md :!make debug<CR>
+
+" Simple valgrind memory leak check
+map <leader>vm :!valgrind --tool=memcheck --leak-check=yes ./`basename "$PWD"`<CR>
