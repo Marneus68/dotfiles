@@ -63,6 +63,14 @@ fi
 
 # end of FIXING HOME END PAGE UP PAGE DOWN 
 
+# Disable some legacy features
+stty -ixon
+
+
+# Some default applications
+export EDITOR="vim"
+export BROWSER="firefox"
+
 # Prompt
 PROMPT="%n@%m:%~ %# "
 
@@ -71,12 +79,11 @@ alias ls='ls --color=auto'
 # Pretty tree
 alias tree='tree -C'
 
+
+alias ppdf='evince-previewer'
 alias cd..='cd ..'
 alias untar='tar -xzf'
 alias untar2='tar -xjf'
-
-alias ppdf='evince-previewer'
-alias dia='dia --integrated'
 
 # Quick way to open my projects in vim
 alias vic='vim Makefile src/* include/*'

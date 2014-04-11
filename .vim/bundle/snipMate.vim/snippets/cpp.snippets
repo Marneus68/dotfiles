@@ -26,7 +26,10 @@ snippet cl
 	
 		public:
 			$1 (${2:arguments});
+			$1 (const $1&);
 			virtual ~$1 ();
+
+			$1 &operator=(const $1&);
 	};
 # Singleton Class Definition
 snippet hscl

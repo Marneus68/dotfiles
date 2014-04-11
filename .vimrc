@@ -95,12 +95,9 @@ if has("gui_running")
     ":set guioptions-=m
 	" Remove the icon bar
     :set guioptions-=T
-    :set guioptions-=m
-    :set guioptions-=lrbTm
-    :set guioptions-=L
     :set guioptions-=r
 	" Terminus Master Race
-	"set guifont=Terminus\ 8
+	set guifont=Terminus\ 8
     " Maximize the window
     set lines=999 columns=999
 endif
@@ -248,11 +245,6 @@ set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? T
 map <leader><F11> :setlocal spell! spelllang=fr<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Language-specific shenanigans
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-imap log<tab> Debug.Log(
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Scripts, Extentions and custom bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Reload my vimrc
@@ -321,12 +313,10 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
 " Simple make, make clean, make mrproper, make test and make debug
-map <leader>mm :!make<CR>
-map <leader>mc :!make clean<CR>
-map <leader>mp :!make mrproper<CR>
-map <leader>md :!make debug<CR>
+map <leader>mm :!clear<CR>:!make<CR>
+map <leader>mc :!clear<CR>:!make clean<CR>
+map <leader>mp :!clear<CR>:!make mrproper<CR>
+map <leader>md :!clear<CR>:!make debug<CR>
 
 " Simple valgrind memory leak check
 map <leader>vm :!valgrind --tool=memcheck --leak-check=yes ./`basename "$PWD"`<CR>
-command! PrettyXML exe ":silent 1,$!tidy --input-xml true --indent yes 2>/dev/null"
-
