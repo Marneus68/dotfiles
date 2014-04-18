@@ -317,6 +317,7 @@ map <leader>mm :!clear<CR>:!make<CR>
 map <leader>mc :!clear<CR>:!make clean<CR>
 map <leader>mp :!clear<CR>:!make mrproper<CR>
 map <leader>md :!clear<CR>:!make debug<CR>
+map <leader>rp :!clear<CR>:!./`basename "$PWD"`<CR>
 
 " Simple valgrind memory leak check
 map <leader>vm :!valgrind --tool=memcheck --leak-check=yes ./`basename "$PWD"`<CR>
