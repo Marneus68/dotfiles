@@ -268,6 +268,7 @@ nmap <leader>rc :e $MYVIMRC<CR>
 nmap <leader>rr :source $MYVIMRC<CR>
 
 " Start Pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 " CtrlP bindings
