@@ -1,17 +1,20 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' matcher-list ''
+zstyle :compinstall filename '/Users/StudioV2/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt notify
+setopt appendhistory autocd extendedglob nomatch notify
 unsetopt beep
-bindkey -e
 # End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/duane/.zshrc'
-
-autoload -Uz compinit
-compinit
-
+#
 #################
 # STUFF I ADDED #
 #################
@@ -66,7 +69,6 @@ fi
 # Disable some legacy features
 stty -ixon
 
-
 # Some default applications
 export EDITOR="vim"
 export BROWSER="firefox"
@@ -75,10 +77,13 @@ export BROWSER="firefox"
 PROMPT="%n@%m:%~ %# "
 
 # Pretty ls
-alias ls='ls --color=auto'
+alias ls='ls -G'
 # Pretty tree
 alias tree='tree -C'
-
+# Pretty ant output
+export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
+# Pretty grep too
+alias grep='grep --color=auto'
 
 alias ppdf='evince-previewer'
 alias cd..='cd ..'

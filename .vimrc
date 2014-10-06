@@ -38,7 +38,6 @@ set ruler
 
 " Display the current cursor line
 set cursorline
-" highlight Cursorline cterm=background
 :hi CursorLine   cterm=NONE ctermbg=darkgrey ctermfg=NONE
 
 " Line numbering // you can't live without it
@@ -46,11 +45,7 @@ set cursorline
 "           numbers
 set number
 
-" Show a column at 80 chars
-"set colorcolumn=81
-
 " Show a column at chars for every line that is over 80 characters long
-" highlight ColorColumn ctermbg-magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
 " Configure backspace so it acts as it should act
@@ -65,9 +60,14 @@ set wildmenu
 set wildmode=list:longest
 
 " Enable Omni Completion
-set nocp
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+
+" Set the completion menu behaviour
+set completeopt=longest,menuone,preview
+
+" Move the vertical splits at the bottom so it doesn't move the code
+set splitbelow
 
 " No annoying sound on errors, use a flash instead
 set noerrorbells
@@ -87,10 +87,9 @@ map <ScrollWheelDown> <C-E>
 filetype plugin on
 syntax enable
 
-" Prevent the 'transparent background' effect, whiwh might be enjoyable
+" Prevent the 'transparent background' effect, which might be enjoyable
 set background=dark
 
-" if GVIM
 if has("gui_running")
     ":set guioptions-=m
 	" Remove the icon bar
@@ -116,14 +115,14 @@ map j gj
 map k gk
 
 " Prevent you from using the arrow keys
-"noremap  <Up> ""
-"noremap! <Up> <Esc>
-"noremap  <Down> ""
-"noremap! <Down> <Esc>
-"noremap  <Left> ""
-"noremap! <Left> <Esc>
-"noremap  <Right> ""
-"noremap! <Right> <Esc>
+" noremap  <Up> ""
+" noremap! <Up> <Esc>
+" noremap  <Down> ""
+" noremap! <Down> <Esc>
+" noremap  <Left> ""
+" noremap! <Left> <Esc>
+" noremap  <Right> ""
+" noremap! <Right> <Esc>
 
 " Adds v before any search expression to allow normally formed regexps
 nnoremap / /\v
@@ -133,10 +132,10 @@ vnoremap / /\v
 set ignorecase
 set smartcase
 
-" Replace all occurences by default
+" Replace all occurrences by default
 set gdefault
 
-" Dinamically highlight the search results
+" Dynamically highlight the search results
 set incsearch
 set showmatch
 set hlsearch
@@ -228,12 +227,12 @@ endfunction
 
 set statusline=
 set statusline+=%0*\[%n]                                  "buffernr
-set statusline+=%0*\ %<%F\                                "File+path
+set statusline+=%0*\ %<%F\                                "File path
 set statusline+=%0*\ %y\                                  "FileType
 set statusline+=%0*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
 set statusline+=%0*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
 set statusline+=%0*\ %{&ff}\                              "FileFormat (dos/unix..) 
-set statusline+=%0*\ %{&spelllang}\%{HighlightSearch()}\  "Spellanguage & Highlight on?
+set statusline+=%0*\ %{&spelllang}\ %{HighlightSearch()}\  "Spellanguage & Highlight on?
 set statusline+=%0*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
 set statusline+=%0*\ col:%03c\                            "Colnr
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
@@ -241,15 +240,32 @@ set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? T
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Spellcheck
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" binding to enable and disable spellchecking with the french dictionnary
-map <leader><F11> :setlocal spell! spelllang=fr<CR>
+" Spellcheck color
+:hi clear SpellBad
+:hi SpellBad cterm=underline ctermbg=darkred ctermfg=red
+
+let b:myLang=0
+let g:myLangList=["nospell","en","fr"]
+function! ToggleSpell()
+    let b:myLang=b:myLang+1
+    if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
+        if b:myLang==0
+            setlocal nospell
+        else
+            execute "setlocal spell spelllang=".get(g:myLangList, b:myLang)
+        endif
+    echo ""
+endfunction
+
+" Rotates between no spell checking, English dictionary and French dictionary
+map <leader><F11> :call ToggleSpell()<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Scripts, Extentions and custom bindings
+" Scripts, Extensions and custom bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Reload my vimrc
+" Bindings to reload my vimrc
 nmap <leader>rc :e $MYVIMRC<CR>
-nmap <leader>rr :so $MYVIMRC<CR>
+nmap <leader>rr :source $MYVIMRC<CR>
 
 " Start Pathogen
 call pathogen#infect()
@@ -258,45 +274,21 @@ call pathogen#infect()
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP ./'
 
-" miniBuffExplorer bindings
-"map <Leader>b :TMiniBufExplorer<cr>
-"map <Leader>t :MiniBufExplorer<cr>
-
 " Enable ctrl+h and ctrl+l to move around the buffers
-" let g:miniBufExplMapWindowNavVim = 1
-"nmap <c-l> <c-w>k<tab><cr>
 nmap <c-l> :bn<CR>
-"nmap <c-h> <c-w>k<s-tab><cr>
 nmap <c-h> :bp<CR>
 
 " EasyMotion bindings
 nmap <leader>f H<leader><leader>w
 
-" Syntastic options
-"let g:syntastic_cpp_check_header = 1
-"let g:syntastic_cpp_auto_refresh_includes = 1
-"let g:syntastic_cpp_include_dirs = [ 'include', 'headers', 'inc', '../include', '../inc', '../headers' ]
-
 " FSwitch options
 let g:alternateSearchPath = 'reg:#\<src\>$#include#,reg:#\<include\>$#src#'
 au! BufEnter *.cpp let b:fswitchdst = 'h' | let b:fswitchlocs = '../include'
 au! BufEnter *.h let b:fswitchdst = 'cpp' | let b:fswitchlocs = '../src'
+"
 " FSwitch bindings
 nmap <leader>fs :FSHere<CR>
 
-" OmniCppComplete
-" configure tags - add additional tags here or comment out not-used ones
-set tags+=~/.vim/tags/cpp
-set tags+=~/.vim/tags/gl
-set tags+=~/.vim/tags/sdl
-set tags+=~/.vim/tags/sfml
-set tags+=~/.vim/tags/gtkmm-3.0
-set tags+=~/.vim/tags/gtkmm-2.4
-set tags+=~/.vim/tags/irr
-set tags+=~/.vim/tags/temp
-" build tags of your own project wiOmniCpp_SelectFirstItem = 0th Ctrl-F12
-map <leader><F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q -f ~/.vim/tags/temp .<CR><CR>
-"
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
@@ -308,16 +300,30 @@ let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
 let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_SelectFirstItem = 1 " autmatically select the first item
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
+
+" Some often used tags
+set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/gl
+set tags+=~/.vim/tags/sdl
+set tags+=~/.vim/tags/sfml
+set tags+=~/.vim/tags/gtkmm-3.0
+set tags+=~/.vim/tags/irr
+set tags+=~/.vim/tags/temp
+
+" Rebuild the tags
+
+" Build tags of the current project wiOmniCpp_SelectFirstItem = 0th Ctrl-F12
+map <leader><F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q -f ~/.vim/tags/temp .<CR><CR>
 
 " Simple make, make clean, make mrproper, make test and make debug
-map <leader>mm :!clear<CR>:!make<CR>
-map <leader>mc :!clear<CR>:!make clean<CR>
-map <leader>mp :!clear<CR>:!make mrproper<CR>
-map <leader>md :!clear<CR>:!make debug<CR>
-map <leader>rp :!clear<CR>:!./`basename "$PWD"`<CR>
+map <leader>mm :!clear<CR>:!make<CR>                " make
+map <leader>mc :!clear<CR>:!make clean<CR>          " make clean
+map <leader>mp :!clear<CR>:!make mrproper<CR>       " make mrproper
+map <leader>md :!clear<CR>:!make debug<CR>          " make debug
+map <leader>rp :!clear<CR>:!./`basename "$PWD"`<CR> " run program
 
 " Simple valgrind memory leak check
 map <leader>vm :!valgrind --tool=memcheck --leak-check=yes ./`basename "$PWD"`<CR>
