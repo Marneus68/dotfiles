@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/vim-surround.vim"]
 	path = .vim/bundle/vim-surround.vim
 	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/bundle/vim-clang_complete.vim"]
+	path = .vim/bundle/vim-clang_complete.vim
+	url = https://github.com/Rip-Rip/clang_complete.git
