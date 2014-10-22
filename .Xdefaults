@@ -1,4 +1,6 @@
 
+URxvt.geometry: 95x30
+
 URxvt.depth: 32
 URxvt.background: [95]#000000
 URxvt.scrollBar: false
@@ -21,5 +23,4 @@ URxvt.foreground: white
 *color13: #c33a80
 *color14: #659ccd
 *color15: #f3f8fa
-
 
