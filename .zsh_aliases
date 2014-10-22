@@ -1,5 +1,5 @@
 # Aliases
-alias nautilus='dbus-launch nautilus'
+alias nautilus='dbus-launch nautilus --no-desktop'
 alias dia='dia --integrated'
 alias virtualbox='modprobe vboxdrv; virtualbox'
 

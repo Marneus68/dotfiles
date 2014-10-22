@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Feh Image Viewer
+Comment=View images with feh
+Exec=feh --auto-zoom --geometry 800x600 --sort filename --force-aliasing %f
+Categories=;
+StartupNotify=true
+Hidden=false
+Terminal=false
+Type=Application
+MimeType=image;

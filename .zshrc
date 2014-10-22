@@ -92,3 +92,5 @@ alias untar2='tar -xjf'
 
 # Quick way to open my projects in vim
 alias vic='vim Makefile src/* include/*'
+
+source $HOME/.zsh_aliases

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Vim Text Editor
+Comment=Edit text files with Vim
+Exec=urxvt -e vim %f
+Categories=;
+StartupNotify=true
+Hidden=false
+Terminal=false
+Type=Application
+MimeType=text/plain;

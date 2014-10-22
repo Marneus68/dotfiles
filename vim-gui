@@ -1,3 +1,0 @@
-#!/bin/sh
-ARGS="$@"
-urxvt -e vim $ARGS
