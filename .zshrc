@@ -77,7 +77,7 @@ export BROWSER="firefox"
 PROMPT="%n@%m:%~ %# "
 
 # Pretty ls
-alias ls='ls -G'
+alias ls='ls --color'
 # Pretty tree
 alias tree='tree -C'
 # Pretty ant output
@@ -89,8 +89,8 @@ alias ppdf='evince-previewer'
 alias cd..='cd ..'
 alias untar='tar -xzf'
 alias untar2='tar -xjf'
+alias un7z='7za e'
 
 # Quick way to open my projects in vim
 alias vic='vim Makefile src/* include/*'
 
-source $HOME/.zsh_aliases
