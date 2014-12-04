@@ -291,11 +291,11 @@ au! BufEnter *.h let b:fswitchdst = 'cpp' | let b:fswitchlocs = '../src'
 nmap <leader>fs :FSHere<CR>
 
 " Simple make, make clean, make mrproper, make test and make debug
-map <leader>mm :!clear<CR>:!make<CR>                " make
-map <leader>mc :!clear<CR>:!make clean<CR>          " make clean
-map <leader>mp :!clear<CR>:!make mrproper<CR>       " make mrproper
-map <leader>md :!clear<CR>:!make debug<CR>          " make debug
-map <leader>rp :!clear<CR>:!./`basename "$PWD"`<CR> " run program
+map <leader>mm :!clear<CR>:!make<CR>
+map <leader>mc :!clear<CR>:!make clean<CR>
+map <leader>mp :!clear<CR>:!make mrproper<CR>
+map <leader>md :!clear<CR>:!make debug<CR>
+map <leader>rp :!clear<CR>:!./`basename "$PWD"`<CR>
 
 " Simple valgrind memory leak check
 map <leader>vm :!valgrind --tool=memcheck --leak-check=yes ./`basename "$PWD"`<CR>
