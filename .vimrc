@@ -286,9 +286,12 @@ nmap <leader>f H<leader><leader>w
 let g:alternateSearchPath = 'reg:#\<src\>$#include#,reg:#\<include\>$#src#'
 au! BufEnter *.cpp let b:fswitchdst = 'h' | let b:fswitchlocs = '../include'
 au! BufEnter *.h let b:fswitchdst = 'cpp' | let b:fswitchlocs = '../src'
-"
+
 " FSwitch bindings
 nmap <leader>fs :FSHere<CR>
+
+" NERDTree bindings
+map <leader><tab> <ESC>:NERDTreeToggle<CR>
 
 " Simple make, make clean, make mrproper, make test and make debug
 map <leader>mm :!clear<CR>:!make<CR>

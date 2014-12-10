@@ -25,3 +25,9 @@
 [submodule ".vim/bundle/vim-clang_complete.vim"]
 	path = .vim/bundle/vim-clang_complete.vim
 	url = https://github.com/Rip-Rip/clang_complete.git
+[submodule ".vim/bundle/nerdtree.vim"]
+	path = .vim/bundle/nerdtree.vim
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/nerdtree-execute.vim"]
+	path = .vim/bundle/nerdtree-execute.vim
+	url = https://github.com/ivalkeen/nerdtree-execute.git
