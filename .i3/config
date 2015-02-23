@@ -40,7 +40,7 @@ bindsym $mod+Shift+t exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run_aliases -h 18 -p "Actuate" -nb "#000000" -nf "#FFFFFF" -sf "#adb8bf" -sb "#49176d"
+bindsym $mod+d exec dmenu_recent_aliases -h 18 -p "Actuate" -nb "#000000" -nf "#FFFFFF" -sf "#adb8bf" -sb "#49176d"
 
 # Back and forth
 workspace_auto_back_and_forth yes
@@ -101,41 +101,64 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $w1 "♉"
+set $w2 "♈"
+set $w3 "♊"
+set $w4 "♋"
+set $w5 "♌"
+set $w6 "♍"
+set $w7 "♎"
+set $w8 "♏"
+set $w9 "♐"
+set $w10 "♑"
+set $w11 "♒"
+set $w12 "♓"
+
 # workspaces names
-workspace "1: Main" output LVDS
-workspace "2: Web" output LVDS
-workspace "3: Media" output LVDS
-workspace "4: CAO" output LVDS
-workspace "5: Dev" output LVDS
-workspace "6: Admin" output LVDS
-workspace "7: Misc" output LVDS
-workspace "8: Misc" output LVDS
-workspace "9: Music" output LVDS
-workspace "0: Second Screen" output VGA-0
+workspace $w1 output LVDS
+workspace $w2 output LVDS
+workspace $w3 output LVDS
+workspace $w4 output LVDS
+workspace $w5 output LVDS
+workspace $w6 output LVDS
+workspace $w7 output LVDS
+workspace $w8 output LVDS
+workspace $w9 output LVDS
+workspace $w10 output LVDS
+workspace $w11 output LVDS
+workspace $w12 output VGA-0
 
 # switch to workspace
-bindsym $mod+1 workspace "1: Main"
-bindsym $mod+2 workspace "2: Web"
-bindsym $mod+3 workspace "3: Media"
-bindsym $mod+4 workspace "4: CAO"
-bindsym $mod+5 workspace "5: Dev"
-bindsym $mod+6 workspace "6: Admin"
-bindsym $mod+7 workspace "7: Misc"
-bindsym $mod+8 workspace "8: Misc"
-bindsym $mod+9 workspace "9: Music"
-bindsym $mod+0 workspace "0: Second Screen"
+bindsym $mod+1 workspace $w1 
+bindsym $mod+2 workspace $w2
+bindsym $mod+3 workspace $w3
+bindsym $mod+4 workspace $w4
+bindsym $mod+5 workspace $w5
+bindsym $mod+6 workspace $w6
+bindsym $mod+7 workspace $w7
+bindsym $mod+8 workspace $w8
+bindsym $mod+9 workspace $w9
+bindsym $mod+0 workspace $w10
+bindsym $mod+parenright workspace $w11
+bindsym $mod+equal workspace $w12
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace "1: Main"
-bindsym $mod+Shift+2 move container to workspace "2: Web"
-bindsym $mod+Shift+3 move container to workspace "3: Media"
-bindsym $mod+Shift+4 move container to workspace "4: CAO"
-bindsym $mod+Shift+5 move container to workspace "5: Dev"
-bindsym $mod+Shift+6 move container to workspace "6: Admin"
-bindsym $mod+Shift+7 move container to workspace "7: Misc"
-bindsym $mod+Shift+8 move container to workspace "8: Misc"
-bindsym $mod+Shift+9 move container to workspace "9: Music"
-bindsym $mod+Shift+0 move container to workspace "0: Second Screen"
+bindsym $mod+Shift+1 move container to workspace $w1
+bindsym $mod+Shift+2 move container to workspace $w2
+bindsym $mod+Shift+3 move container to workspace $w3
+bindsym $mod+Shift+4 move container to workspace $w4
+bindsym $mod+Shift+5 move container to workspace $w5
+bindsym $mod+Shift+6 move container to workspace $w6
+bindsym $mod+Shift+7 move container to workspace $w7
+bindsym $mod+Shift+8 move container to workspace $w8
+bindsym $mod+Shift+9 move container to workspace $w9
+bindsym $mod+Shift+0 move container to workspace $w10
+bindsym $mod+Shift+parenright move container to workspace $w11
+bindsym $mod+Shift+equal move container to workspace $w12
+
+# scratchpad
+bindsym $mod+twosuperior move scratchpad
+bindsym $mod+Shift+twosuperior scratchpad show
 
 # color theme
 client.focused          #49176d #654da0 #f3f8fa #1e64a1 
@@ -145,14 +168,16 @@ client.unfocused        #adb8bf #f3f8fa #49176d #292d2e
 
 # remove the window decoration from some applications
 for_window [class="^Firefox$"   title=" - Mozilla Firefox$"]                border none
+for_window [class="^Thunderbird"title=" - Mozilla Thunderbird$"]            border none
 for_window [class="^Gimp$"      title="^GNU Image Manipulation Program$"]   border none
 for_window [class="feh*"        title ="feh*"]                              floating enable
 for_window [class="Rhythmbox"   title ="Rhythmbox*"]                        border none
 
 # assign cerain applications to their own workspaces
-assign [class="^Firefox$" window_role="browser"] "2: Web"
-assign [class="^Gimp$"] "3: Media"
-assign [class="^Rhythmbox$"] "9: Music"
+assign [class="^Firefox$" window_role="browser"] $w2
+assign [class="^Thunderbird" window_role="mail"] $w3
+assign [class="^Gimp$"] $w4
+assign [class="^Rhythmbox$"] $w9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -185,7 +210,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command 	i3status
+    status_command 	i3status
 	position	top
 	workspace_buttons	yes
 
