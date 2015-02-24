@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/nerdtree-execute.vim"]
 	path = .vim/bundle/nerdtree-execute.vim
 	url = https://github.com/ivalkeen/nerdtree-execute.git
+[submodule ".vim/bundle/committia.vim"]
+	path = .vim/bundle/committia.vim
+	url = https://github.com/rhysd/committia.vim.git
