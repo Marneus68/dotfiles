@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/committia.vim"]
 	path = .vim/bundle/committia.vim
 	url = https://github.com/rhysd/committia.vim.git
+[submodule ".vim/bundle/vim-bracketed-pase.vim"]
+	path = .vim/bundle/vim-bracketed-pase.vim
+	url = https://github.com/ConradIrwin/vim-bracketed-paste.git

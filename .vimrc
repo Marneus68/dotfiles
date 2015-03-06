@@ -147,17 +147,19 @@ nnoremap <leader><space> :noh<cr>
 nnoremap ù %
 vnoremap ù %
 
-" Use Ctrl+V in edit mode to paste the content from the clipboard
-imap <c-v> <Esc>"*pi
-" Use Ctrl+C in edit mode to copy the current line into the clipboard
-imap <c-c> <Esc>"*yyi
-
 " unmap ctrl+q because it's annoying (and useless to me)
 map <c-q> <Nop>
 
 " make the indent behaviour a little more sane
 vmap <Tab> >gv
 vmap <S-Tab> <gv
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Copy/Paste bindings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set clipboard=unnamed
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Windows and buffers
