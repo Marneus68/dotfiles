@@ -26,18 +26,18 @@ VPATH	:= $(INCDIR) $(SRCDIR) $(OBJDIR)
 CPP_SRCS    = $(wildcard src/*.cpp)
 OBJ_FILES   = $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(CPP_SRCS))
 
-all: objdir ${TARGET}
+all: ${TARGET}
 
 $(TARGET): $(OBJ_FILES)
 	@echo "Linking..."
 	$(CC) $(WARN) $(OFLAGS) $(CFLAGS) $(LDFLAGS) $(OBJ_FILES) -o $@ $(LDLIBS) 
 	@echo "Done."
 
-obj/%.o: %.cpp
+obj/%.o: %.cpp $(OBJDIR)
 	@echo "Compiling "$<"..."
 	$(CC) -c $(WARN) $(OFLAGS) $(CFLAGS) $(LDFLAGS) $< -o $@
 
-objdir:
+$(OBJDIR):
 	@echo "Creating object directory..."
 	mkdir -p $(OBJDIR)
 
