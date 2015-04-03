@@ -50,7 +50,10 @@ alias un7z='7za e'
 # Quick way to open my projects in vim
 alias vic='vim Makefile src/* include/*'
 
+# Colors definitions for gcc ans g++
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # 4chan image downloader
 #usage: 4chan [option] url
 #example: 4chan -A .jpg,.png https://4chan.org/c/thread/thread-no
-alias 4chaa_downloader="wget -nd -nc -r -HD i.4cdn.org -e robots=off --no-check-certificate"
+alias 4chan_downloader="wget -nd -nc -r -HD i.4cdn.org -e robots=off --no-check-certificate"
