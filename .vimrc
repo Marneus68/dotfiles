@@ -155,11 +155,46 @@ vmap <Tab> >gv
 vmap <S-Tab> <gv
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Copy/Paste bindings
+" Copy/Paste configuration and bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 set clipboard=unnamed
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Windows and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" make external keypad work in terminal vim OSX!
+map <Esc>Oq 1
+map <Esc>Or 2
+map <Esc>Os 3
+map <Esc>Ot 4
+map <Esc>Ou 5
+map <Esc>Ov 6
+map <Esc>Ow 7
+map <Esc>Ox 8
+map <Esc>Oy 9
+map <Esc>Op 0
+map <Esc>On .
+map <Esc>OQ /
+map <Esc>OR *
+map <kPlus> +
+map <Esc>OS -
+map <Esc>OM <CR>
+map! <Esc>Oq 1
+map! <Esc>Or 2
+map! <Esc>Os 3
+map! <Esc>Ot 4
+map! <Esc>Ou 5
+map! <Esc>Ov 6
+map! <Esc>Ow 7
+map! <Esc>Ox 8
+map! <Esc>Oy 9
+map! <Esc>Op 0
+map! <Esc>On .
+map! <Esc>OQ /
+map! <Esc>OR *
+map! <kPlus> +
+map! <Esc>OS -
+map! <Esc>OM <CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Windows and buffers
