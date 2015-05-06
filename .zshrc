@@ -22,6 +22,29 @@ setopt HIST_IGNORE_DUPS
 
 # End of lines added by compinstall
 
+# fixing the numpad
+bindkey -s "^[Op" "0"
+bindkey -s "^[Ol" "."
+bindkey -s "^[OM" "^M"
+# 1 2 3
+bindkey -s "^[Oq" "1"
+bindkey -s "^[Or" "2"
+bindkey -s "^[Os" "3"
+# 4 5 6
+bindkey -s "^[Ot" "4"
+bindkey -s "^[Ou" "5"
+bindkey -s "^[Ov" "6"
+# 7 8 9
+bindkey -s "^[Ow" "7"
+bindkey -s "^[Ox" "8"
+bindkey -s "^[Oy" "9"
+# + -  * /
+bindkey -s "^[Ok" "+"
+bindkey -s "^[Om" "-"
+bindkey -s "^[Oj" "*"
+bindkey -s "^[Oo" "/"
+# end of fixing the numpad
+
 # Disable some legacy features
 stty -ixon
 
@@ -33,7 +56,7 @@ export BROWSER="firefox"
 PROMPT="%n@%m:%~ %# "
 
 # Pretty ls
-alias ls='ls --color'
+alias ls='ls -G'
 # Pretty tree
 alias tree='tree -C'
 # Pretty ant output
@@ -45,15 +68,15 @@ alias ppdf='evince-previewer'
 alias cd..='cd ..'
 alias untar='tar -xzf'
 alias untar2='tar -xjf'
-alias un7z='7za e'
+
+alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 
 # Quick way to open my projects in vim
 alias vic='vim Makefile src/* include/*'
 
-# Colors definitions for gcc ans g++
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
 
-# 4chan image downloader
-#usage: 4chan [option] url
-#example: 4chan -A .jpg,.png https://4chan.org/c/thread/thread-no
-alias 4chan_downloader="wget -nd -nc -r -HD i.4cdn.org -e robots=off --no-check-certificate"
+export ANDROID_HOME=/Applications/android-sdks
+export PATH=/Applications/android-sdks/platform-tools:$PATH
+
