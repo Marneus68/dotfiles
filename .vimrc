@@ -80,6 +80,13 @@ set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
+" Better support of the mouse in terminal
+if has("mouse_sgr")
+    set ttymouse=urxvt
+else
+    set ttymouse=xterm2
+end
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors, Fonts and GUI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,46 +162,11 @@ vmap <Tab> >gv
 vmap <S-Tab> <gv
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Copy/Paste configuration and bindings
+" Copy/Paste bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set clipboard=unnamed
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Windows and buffers
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" make external keypad work in terminal vim OSX!
-map <Esc>Oq 1
-map <Esc>Or 2
-map <Esc>Os 3
-map <Esc>Ot 4
-map <Esc>Ou 5
-map <Esc>Ov 6
-map <Esc>Ow 7
-map <Esc>Ox 8
-map <Esc>Oy 9
-map <Esc>Op 0
-map <Esc>On .
-map <Esc>OQ /
-map <Esc>OR *
-map <kPlus> +
-map <Esc>OS -
-map <Esc>OM <CR>
-map! <Esc>Oq 1
-map! <Esc>Or 2
-map! <Esc>Os 3
-map! <Esc>Ot 4
-map! <Esc>Ou 5
-map! <Esc>Ov 6
-map! <Esc>Ow 7
-map! <Esc>Ox 8
-map! <Esc>Oy 9
-map! <Esc>Op 0
-map! <Esc>On .
-map! <Esc>OQ /
-map! <Esc>OR *
-map! <kPlus> +
-map! <Esc>OS -
-map! <Esc>OM <CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Windows and buffers
@@ -328,6 +300,7 @@ au! BufEnter *.h let b:fswitchdst = 'cpp' | let b:fswitchlocs = '../src'
 nmap <leader>fs :FSHere<CR>
 
 " NERDTree bindings
+let g:NERDTreeWinPos = "right"
 map <leader><tab> <ESC>:NERDTreeToggle<CR>
 
 " Simple make, make clean, make mrproper, make test and make debug
