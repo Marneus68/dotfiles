@@ -1,26 +1,43 @@
-
-URxvt.geometry: 95x30
-
-URxvt.depth: 32
-URxvt.background: [95]#000000
+#URxvt.depth: 32
+#URxvt.background: [95]#000000
+#URxvt.foreground: white
+URxvt.font: xft:terminus:size=8
 URxvt.scrollBar: false
 
-URxvt.foreground: white
-#URxvt.background: black
+! special
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
 
-*color1: #dc3535
-*color2: #12bd77
-*color3: #d2c533
-*color4: #49176d
-*color5: #81293e
-*color6: #1e64a1
-*color7: #adb8bf
+! black
+*.color0:       #202020
+*.color8:       #4d4d4d
 
-*color9: #ff7272
-*color10: #78fdc6
-*color11: #fff8ab
-*color12: #654da0
-*color13: #c33a80
-*color14: #659ccd
-*color15: #f3f8fa
+! red
+*.color1:       #dc3535
+*.color9:       #ff7272
+
+! green
+*.color2:       #12bd77
+*.color10:      #78fdc6
+
+! yellow
+*.color3:       #d2c533
+*.color11:      #fff8ab
+
+! blue
+*.color4:       #49176d
+*.color12:      #654da0
+
+! magenta
+*.color5:       #81293e
+*.color13:      #c33a80
+
+! cyan
+*.color6:       #1e64a1
+*.color14:      #659ccd
+
+! white
+*.color7:       #adb8bf
+*.color15:      #f3f8fa
 
