@@ -37,3 +37,15 @@
 [submodule ".vim/bundle/vim-bracketed-pase.vim"]
 	path = .vim/bundle/vim-bracketed-pase.vim
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
+[submodule "Templates/base_cpp_cmake"]
+	path = Templates/base_cpp_cmake
+	url = https://github.com/Marneus68/base_cpp_cmake.git
+[submodule "Templates/base_cpp_makefile"]
+	path = Templates/base_cpp_makefile
+	url = https://github.com/Marneus68/base_cpp_makefile.git
+[submodule "Templates/base_c_makefile"]
+	path = Templates/base_c_makefile
+	url = https://github.com/Marneus68/base_c_makefile.git
+[submodule "Templates/base_cpp_makefile_googletest"]
+	path = Templates/base_cpp_makefile_googletest
+	url = https://github.com/Marneus68/base_cpp_makefile_googletest.git
