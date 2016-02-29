@@ -84,8 +84,8 @@ alias open='xdg-open'
 export PATH=~/.cabal/bin:$PATH
 
 # Stuff for Android development
-export PATH=~/Android/Sdk/platform-tools:$PATH
-export PATH=~/Android/Sdk/tools:$PATH
+export PATH=~/Programming/Android/Sdk/platform-tools:$PATH
+export PATH=~/Programming/Android/Sdk/tools:$PATH
 
 # Stuff for Go development
 export GOPATH=~/Programming/Go/
