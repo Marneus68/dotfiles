@@ -22,9 +22,6 @@
 [submodule ".vim/bundle/vim-surround.vim"]
 	path = .vim/bundle/vim-surround.vim
 	url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/bundle/vim-clang_complete.vim"]
-	path = .vim/bundle/vim-clang_complete.vim
-	url = https://github.com/Rip-Rip/clang_complete.git
 [submodule ".vim/bundle/nerdtree.vim"]
 	path = .vim/bundle/nerdtree.vim
 	url = https://github.com/scrooloose/nerdtree.git
@@ -49,3 +46,9 @@
 [submodule "Templates/base_cpp_makefile_googletest"]
 	path = Templates/base_cpp_makefile_googletest
 	url = https://github.com/Marneus68/base_cpp_makefile_googletest.git
+[submodule ".vim/bundle/vim-clang.vim"]
+	path = .vim/bundle/vim-clang.vim
+	url = https://github.com/justmao945/vim-clang.git
+[submodule ".vim/bundle/vim-go.vim"]
+	path = .vim/bundle/vim-go.vim
+	url = https://github.com/fatih/vim-go.git
