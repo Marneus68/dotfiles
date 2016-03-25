@@ -86,7 +86,7 @@ set PATH ~/Programming/Android/sdk/platform-tools $PATH
 set PATH ~/Programming/Android/sdk/tools $PATH
 
 # Stuff for Go development
-set GOPATH ~/Programming/Go/
+set -x GOPATH ~/Programming/Go/
 set PATH $GOPATH/bin $PATH
  
 # Prompt
