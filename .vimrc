@@ -46,6 +46,9 @@ endif
 " Always show current position // outline current line
 set ruler
 
+" Make sure that coursor is always vertically centered on j/k moves
+set so=999
+
 " Display the current cursor line
 set cursorline
 :hi CursorLine   cterm=NONE ctermbg=darkgrey ctermfg=NONE
@@ -70,7 +73,6 @@ set wildmenu
 set wildmode=list:longest
 
 " Enable Omni Completion
-filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " Set the completion menu behaviour
@@ -102,7 +104,9 @@ end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting // that should be default
 filetype plugin on
+filetype plugin indent on
 syntax enable
+syntax on
 
 " Prevent the 'transparent background' effect, which might be enjoyable
 set background=dark
@@ -170,6 +174,10 @@ map <c-q> <Nop>
 " make the indent behaviour a little more sane
 vmap <Tab> >gv
 vmap <S-Tab> <gv
+
+" visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy/Paste bindings
@@ -282,6 +290,10 @@ map <leader><F11> :call ToggleSpell()<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Scripts, Extensions and custom bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Binding ctrl space (and ctrl f) for completion
+inoremap <Nul> <C-x><C-o>
+inoremap <C-f> <C-x><C-o>
+
 " Bindings to reload my vimrc
 nmap <leader>rc :e $MYVIMRC<CR>
 nmap <leader>rr :source $MYVIMRC<CR>
