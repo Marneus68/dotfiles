@@ -2,6 +2,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  If I'm running vim on fish, I set the shell back to a standard POSIX shell
+if $SHELL =~ 'fish'
+  set shell='/bin/sh'
+endif
+
 " Map the leader
 let mapleader = ";"
 
@@ -29,6 +34,11 @@ set ffs=unix,dos,mac
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
+
+" Sometimes vim doesn't like fish
+if $SHELL =~ 'bin/fish'
+set shell=/bin/sh
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM user interface
@@ -312,3 +322,11 @@ map <leader>rp :!clear<CR>:!./`basename "$PWD"`<CR>
 
 " Simple valgrind memory leak check
 map <leader>vm :!valgrind --tool=memcheck --leak-check=yes ./`basename "$PWD"`<CR>
+
+" vim-go highlight stuff
+let g:go_highlight_functions = 1  
+let g:go_highlight_methods = 1  
+let g:go_highlight_structs = 1  
+let g:go_highlight_operators = 1  
+let g:go_highlight_build_constraints = 1  
+
