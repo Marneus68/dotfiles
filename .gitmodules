@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/TaskList.vim"]
 	path = .vim/bundle/TaskList.vim
 	url = https://github.com/vim-scripts/TaskList.vim.git
+[submodule ".vim/bundle/vim-snipmate"]
+	path = .vim/bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git

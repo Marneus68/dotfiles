@@ -342,3 +342,5 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1  
 let g:go_highlight_build_constraints = 1  
 
+" location of the snippets
+let g:snippets_dir="~/.vim/bundle/snipmate/vim-snipmate/snippets/,~/.vim/snippets/"
