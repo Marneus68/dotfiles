@@ -179,6 +179,9 @@ vmap <S-Tab> <gv
 vnoremap < <gv
 vnoremap > >gv
 
+" start replacing the word under the cursor in the current scope
+nnoremap <leader>s "zyiw<esc>[{V]}:s/<c-r>z/
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy/Paste bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
