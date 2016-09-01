@@ -1,0 +1,28 @@
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Moving, Searching and Keybindings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Replace all occurrences by default
+set gdefault
+
+" Clear highlights
+nnoremap ;<space> :noh<cr>
+
+" Maps the % (go to corresponding bracket) to Ã¹
+nnoremap Ã¹ %
+vnoremap Ã¹ %
+
+" Make the indent behaviour a little more sane
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" Enable ctrl+h and ctrl+l to move around the buffers
+nmap <c-l> :bn<CR>
+nmap <c-h> :bp<CR>
+
+" start replacing the word under the cursor in the current scope
+nnoremap ;s "zyiw<esc>[{V]}:s/<c-r>z/
