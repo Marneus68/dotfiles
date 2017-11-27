@@ -92,11 +92,19 @@ set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
-" Better support of the mouse in terminal
-if has("mouse_sgr")
-    set ttymouse=urxvt
+" Check if we're on WSL
+let wsl=system("grep Microsoft /proc/version")
+
+if strlen(wsl)
+    " Better support of the mouse in the WSL terminal
+    set ttymouse=sgr
 else
-    set ttymouse=xterm2
+    " Better support of the mouse in terminal
+    if has("mouse_sgr")
+        set ttymouse=urxvt
+    else
+        set tymouse=xterm2
+    end
 end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
