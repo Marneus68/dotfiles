@@ -4,6 +4,8 @@
 URxvt.font: xft:terminus:size=8
 URxvt.scrollBar: false
 
+#"Precious" color scheme
+
 ! special
 *.foreground:   #ffffff
 *.background:   #000000
